@@ -1,0 +1,12 @@
+data:
+  reference_path: "data/processed/reference_dataset.csv"
+  current_path: "data/processed/current_dataset.csv"
+
+target_column: "deposit"
+
+drift:
+  psi_threshold: 0.2
+  significance_level: 0.05
+
+output:
+  report_path: "reports/drift_report.html"

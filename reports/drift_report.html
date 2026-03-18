@@ -1,0 +1,150 @@
+
+    <html>
+    <head>
+        <title>Drift Report</title>
+        <style>
+            body { font-family: Arial; padding: 20px; }
+            h1 { color: #333; }
+            table { border-collapse: collapse; width: 100%; }
+            th, td { border: 1px solid #ccc; padding: 10px; text-align: center; }
+            th { background-color: #f4f4f4; }
+            .drift { background-color: #ffcccc; }
+            .no-drift { background-color: #ccffcc; }
+        </style>
+    </head>
+    <body>
+        <h1>📊 Drift Analysis Report</h1>
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>Type</th>
+                <th>PSI</th>
+                <th>P-Value</th>
+                <th>Drift</th>
+            </tr>
+
+            
+            <tr class="drift">
+                <td>age</td>
+                <td>numeric</td>
+                <td>0.0723</td>
+                <td>0.0</td>
+                <td>True</td>
+            </tr>
+            
+            <tr class="drift">
+                <td>job</td>
+                <td>categorical</td>
+                <td>-</td>
+                <td>0.0</td>
+                <td>True</td>
+            </tr>
+            
+            <tr class="drift">
+                <td>marital</td>
+                <td>categorical</td>
+                <td>-</td>
+                <td>0.0</td>
+                <td>True</td>
+            </tr>
+            
+            <tr class="drift">
+                <td>education</td>
+                <td>categorical</td>
+                <td>-</td>
+                <td>0.0</td>
+                <td>True</td>
+            </tr>
+            
+            <tr class="no-drift">
+                <td>default</td>
+                <td>categorical</td>
+                <td>-</td>
+                <td>0.1442</td>
+                <td>False</td>
+            </tr>
+            
+            <tr class="drift">
+                <td>balance</td>
+                <td>numeric</td>
+                <td>0.3336</td>
+                <td>0.0002</td>
+                <td>True</td>
+            </tr>
+            
+            <tr class="drift">
+                <td>housing</td>
+                <td>categorical</td>
+                <td>-</td>
+                <td>0.0</td>
+                <td>True</td>
+            </tr>
+            
+            <tr class="drift">
+                <td>loan</td>
+                <td>categorical</td>
+                <td>-</td>
+                <td>0.0</td>
+                <td>True</td>
+            </tr>
+            
+            <tr class="drift">
+                <td>contact</td>
+                <td>categorical</td>
+                <td>-</td>
+                <td>0.0</td>
+                <td>True</td>
+            </tr>
+            
+            <tr class="drift">
+                <td>day</td>
+                <td>numeric</td>
+                <td>0.2207</td>
+                <td>0.0</td>
+                <td>True</td>
+            </tr>
+            
+            <tr class="drift">
+                <td>month</td>
+                <td>categorical</td>
+                <td>-</td>
+                <td>0.0</td>
+                <td>True</td>
+            </tr>
+            
+            <tr class="drift">
+                <td>campaign</td>
+                <td>numeric</td>
+                <td>0.1058</td>
+                <td>0.0</td>
+                <td>True</td>
+            </tr>
+            
+            <tr class="drift">
+                <td>pdays</td>
+                <td>numeric</td>
+                <td>0.1788</td>
+                <td>0.0</td>
+                <td>True</td>
+            </tr>
+            
+            <tr class="no-drift">
+                <td>previous</td>
+                <td>numeric</td>
+                <td>0.0039</td>
+                <td>0.9852</td>
+                <td>False</td>
+            </tr>
+            
+            <tr class="drift">
+                <td>poutcome</td>
+                <td>categorical</td>
+                <td>-</td>
+                <td>0.0</td>
+                <td>True</td>
+            </tr>
+            
+        </table>
+    </body>
+    </html>
+    

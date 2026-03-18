@@ -1,0 +1,16 @@
+numpy
+pandas
+matplotlib
+scipy
+statsmodels
+seaborn
+scikit-learn
+streamlit
+plotly
+ruptures
+psycopg2-binary
+sqlalchemy
+pyyaml
+uvicorn
+jinja2
+logging

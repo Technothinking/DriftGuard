@@ -1,0 +1,15 @@
+age: {'type': 'numeric', 'psi': 0.0723, 'p_value': np.float64(0.0), 'drift': True}
+job: {'type': 'categorical', 'p_value': np.float64(0.0), 'drift': True}
+marital: {'type': 'categorical', 'p_value': np.float64(0.0), 'drift': True}
+education: {'type': 'categorical', 'p_value': np.float64(0.0), 'drift': True}
+default: {'type': 'categorical', 'p_value': np.float64(0.1442), 'drift': False}
+balance: {'type': 'numeric', 'psi': 0.3336, 'p_value': np.float64(0.0002), 'drift': True}
+housing: {'type': 'categorical', 'p_value': np.float64(0.0), 'drift': True}
+loan: {'type': 'categorical', 'p_value': np.float64(0.0), 'drift': True}
+contact: {'type': 'categorical', 'p_value': np.float64(0.0), 'drift': True}
+day: {'type': 'numeric', 'psi': 0.2207, 'p_value': np.float64(0.0), 'drift': True}
+month: {'type': 'categorical', 'p_value': np.float64(0.0), 'drift': True}
+campaign: {'type': 'numeric', 'psi': 0.1058, 'p_value': np.float64(0.0), 'drift': True}
+pdays: {'type': 'numeric', 'psi': 0.1788, 'p_value': np.float64(0.0), 'drift': True}
+previous: {'type': 'numeric', 'psi': 0.0039, 'p_value': np.float64(0.9852), 'drift': False}
+poutcome: {'type': 'categorical', 'p_value': np.float64(0.0), 'drift': True}
