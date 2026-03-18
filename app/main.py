@@ -90,9 +90,11 @@ if ref_file and curr_file:
     st.subheader("📋 Feature Drift Table")
 
     df_results = pd.DataFrame(drift_results).T
-    st.dataframe(df_results.style.applymap(
-        lambda x: "background-color: red" if x == True else "", subset=["drift"]
-    ))
+    st.dataframe(
+        df_results.style.map(
+            lambda x: "background-color: red" if x == True else ""
+        )
+    )
 
     st.subheader("📊 Drift Score Gauge")
 
