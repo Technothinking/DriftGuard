@@ -4,6 +4,8 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 import streamlit as st
 import pandas as pd
+import plotly.graph_objects as go
+import plotly.express as px
 
 from src.data.preprocess import preprocess_data
 from src.metrics.conversion_rate import calculate_conversion_rate
@@ -91,5 +93,70 @@ if ref_file and curr_file:
     st.dataframe(df_results.style.applymap(
         lambda x: "background-color: red" if x == True else "", subset=["drift"]
     ))
+
+    st.subheader("📊 Drift Score Gauge")
+
+    fig = go.Figure(go.Indicator(
+        mode="gauge+number",
+        value=drift_score["score"] * 100,
+        title={"text": "Drift Risk (%)"},
+        gauge={
+            "axis": {"range": [0, 100]},
+            "bar": {"thickness": 0.3},
+            "steps": [
+                {"range": [0, 20], "color": "green"},
+                {"range": [20, 50], "color": "yellow"},
+                {"range": [50, 100], "color": "red"},
+            ],
+        }
+    ))
+
+    st.plotly_chart(fig, use_container_width=True)
+
+    st.subheader("📉 Feature Distribution Comparison")
+    st.info("💡 Tip: Select different features to visually inspect drift patterns")
+    selected_feature = st.selectbox("Select Feature", ref.columns)
+
+    if ref[selected_feature].dtype in ["int64", "float64"]:
+        fig = px.histogram(
+            x=ref[selected_feature],
+            nbins=30,
+            opacity=0.5,
+            title=f"{selected_feature} Distribution (Reference vs Current)"
+        )
+
+        fig.add_histogram(x=curr[selected_feature])
+
+        fig.update_layout(barmode='overlay')
+
+    else:
+        ref_counts = ref[selected_feature].value_counts(normalize=True)
+        curr_counts = curr[selected_feature].value_counts(normalize=True)
+
+        df_plot = pd.DataFrame({
+            "Category": list(set(ref_counts.index).union(curr_counts.index)),
+            "Reference": [ref_counts.get(x, 0) for x in set(ref_counts.index).union(curr_counts.index)],
+            "Current": [curr_counts.get(x, 0) for x in set(ref_counts.index).union(curr_counts.index)],
+        })
+
+        fig = px.bar(df_plot, x="Category", y=["Reference", "Current"], barmode="group")
+
+    st.plotly_chart(fig, use_container_width=True)
+
+
+    st.subheader("📊 Top Drift Features")
+
+    top_df = pd.DataFrame(top_features, columns=["Feature", "Impact"])
+
+    fig = px.bar(
+        top_df,
+        x="Feature",
+        y="Impact",
+        title="Top Drift Drivers",
+        text="Impact"
+    )
+
+    st.plotly_chart(fig, use_container_width=True)
+
 
     st.success("✅ Analysis Complete")
